@@ -22,25 +22,22 @@ const ListCollection = ({ onNext, aiResponse }) => {
       <div className="flex-1 relative">
         <div className="text-center mt-4">
           <h1 className="text-2xl font-bold mb-4">Lista de Items</h1>
-          
           {aiResponse?.items ? (
             <div className="w-3/4 mx-auto">
               <div className="max-h-[50vh] overflow-y-auto space-y-4 pb-20">
                 {aiResponse.items
                   .sort((a, b) => b.elo - a.elo)
                   .map((item, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                       onClick={() => handleSelect(index)}
                     >
                       <div className="flex items-center justify-between">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span>{item.emoji}</span>
-                            <div className="scrolling-text-container">
-                              <span className="scrolling-text font-semibold">{item.name}</span>
-                            </div>
+                        <div className="flex items-center gap-2">
+                          <span>{item.emoji}</span>
+                          <div className="scrolling-text-container">
+                            <span className="scrolling-text font-semibold">{item.name}</span>
                           </div>
                         </div>
                         <div className="flex items-center">

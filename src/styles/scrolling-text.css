@@ -8,18 +8,19 @@
 }
 
 .scrolling-text {
+  background-color: red;
+  display: inline-block;
   white-space: nowrap;
-  overflow: hidden;
   animation: scrollText 4s linear infinite;
-  animation-play-state: paused;
-}
-
-.scrolling-text:hover {
-  animation-play-state: running;
+  left: 0;
+  top: 0;
+  transform: translateX(0);
 }
 
 .scrolling-text-container {
-  width: 100%;
+  background-color: blue;
+  position: relative;
+  max-width: 125px;
   overflow: hidden;
   cursor: pointer;
 }
