@@ -25,9 +25,12 @@ function App() {
   }
 
   return (
-    <PhoneFrame>
-      {renderStep()}
-    </PhoneFrame>
+    <>
+      <PhoneFrame>
+        {renderStep()}
+      </PhoneFrame>
+      <p className='absolute bottom-2 right-2/3 w-16 h-16 flex items-center justify-center text-center bg-white rounded-full border-4 text-2xl font-bold'>{step}</p>
+    </>
   )
 }
 
