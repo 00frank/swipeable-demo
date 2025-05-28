@@ -1,0 +1,25 @@
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scrolling-text {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scrollText 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.scrolling-text:hover {
+  animation-play-state: running;
+}
+
+.scrolling-text-container {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
