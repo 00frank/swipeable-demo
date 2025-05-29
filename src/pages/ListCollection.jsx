@@ -6,12 +6,14 @@ import '../styles/scrolling-text.css'
 const ListCollection = ({ onNext, aiResponse }) => {
   const [selectedItems, setSelectedItems] = useState([])
 
-  const handleSelect = (itemId) => {
+  const handleSelect = (index) => {
+    console.log("index", index)
     setSelectedItems(prev => {
-      if (prev.includes(itemId)) {
-        return prev.filter(id => id !== itemId)
+      const itemToToggle = aiResponse.items[index]
+      if (prev.some(item => item.id === index)) {
+        return prev.filter(item => item.id !== index)
       } else {
-        return [...prev, itemId]
+        return [...prev, { id: index, ...itemToToggle }]
       }
     })
   }
@@ -44,7 +46,7 @@ const ListCollection = ({ onNext, aiResponse }) => {
                           <div className="relative">
                             <input
                               type="checkbox"
-                              checked={selectedItems.includes(index)}
+                              checked={selectedItems.some(selected => selected.id === index)}
                               onChange={(e) => {
                                 e.stopPropagation();
                                 handleSelect(index);
@@ -56,6 +58,14 @@ const ListCollection = ({ onNext, aiResponse }) => {
                       </div>
                     </div>
                   ))}
+                <div className="flex justify-center mt-8">
+                  <button
+                    onClick={() => onNext(selectedItems)}
+                    className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
+                  >
+                    Siguiente
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
@@ -65,7 +75,7 @@ const ListCollection = ({ onNext, aiResponse }) => {
           )}
         </div>
       </div>
-      <NavBar onNext={onNext} />
+      <NavBar onNext={() => onNext()} />
     </div>
   )
 }
