@@ -5,8 +5,8 @@ const NavBar = ({ onNext }) => {
         <button className="text-2xl mr-3">
           🏠
         </button>
-        <button className="text-4xl absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-black flex items-center justify-center">
-          <button className="cursor-pointer" onClick={onNext}>➕</button>
+        <button className="text-4xl absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-black flex items-center justify-center cursor-pointer" onClick={onNext}>
+          ➕
         </button>
         <button className="text-2xl ml-3">
           📜
